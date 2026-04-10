@@ -6,7 +6,7 @@
 # Usage: xcodebuild ... 2>&1 | minify-build.sh <prefix>
 # Example: xcodebuild ... 2>&1 | minify-build.sh "build_ios18"
 #
-# Creates: Agents/Builds/{prefix}_{timestamp}/
+# Creates: .agents/builds/{prefix}_{timestamp}/
 #   - Raw.log       - Full unfiltered build output
 #   - Errors.log    - Only errors (empty if none)
 #   - Warnings.log  - Only warnings (empty if none)
@@ -16,7 +16,7 @@ set -e
 
 # Setup
 PROJECT_ROOT="$(pwd)"
-BUILD_DIR="$PROJECT_ROOT/Agents/Builds"
+BUILD_DIR="$PROJECT_ROOT/.agents/builds"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 PREFIX="${1:-build}"
 OUTPUT_DIR="$BUILD_DIR/${PREFIX}_${TIMESTAMP}"

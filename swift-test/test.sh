@@ -12,7 +12,7 @@ set -e
 # Setup
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(pwd)"
-TEST_DIR="$PROJECT_ROOT/Agents/Tests"
+TEST_DIR="$PROJECT_ROOT/.agents/tests"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 
 # Verify Package.swift exists

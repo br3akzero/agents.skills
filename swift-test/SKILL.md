@@ -58,7 +58,7 @@ Only read `{output_dir}/Raw.log` if:
 ## Output Directory Structure
 
 ```
-{project_dir}/Agents/Tests/{prefix}_{timestamp}/
+{project_dir}/.agents/tests/{prefix}_{timestamp}/
 ├── Summary.log    # Test status + counts (read first)
 ├── Passed.log     # Passed test lines
 ├── Failures.log   # Failed test lines (read if tests failed)

@@ -63,7 +63,7 @@ Only read `{output_dir}/Raw.log` if:
 ## Output Directory Structure
 
 ```
-{project_dir}/Agents/Builds/{prefix}_{timestamp}/
+{project_dir}/.agents/builds/{prefix}_{timestamp}/
 ├── Summary.log    # Build status + summary (read first)
 ├── Errors.log     # Only errors (read if build failed)
 ├── Warnings.log   # Only warnings (read if user wants)
