@@ -33,7 +33,7 @@ Commit tracked and untracked changes in the project using conventional commits s
 
 ## Rules
 
-- DO NOT mention Claude Code or AI assistance in commit messages
+- DO NOT mention AI assistance in commit messages
 - DO NOT add Co-Authored-By lines
 - Stage only related files together
 - Review changes before committing

@@ -89,7 +89,13 @@ Miscellaneous
    - **Fixes**: Bug fixes (concise: what was fixed, detailed: root cause and solution)
    - **Miscellaneous**: Refactoring, architecture changes, code organization, naming improvements, navigation patterns, dependency management
 
-6. **Categories:**
+6. **Language rules:**
+   - Use only simple, plain English words throughout
+   - Avoid fancy or uncommon words like "scaffolded", "bootstrapped", "orchestrated", "leveraged", "utilized", "facilitated"
+   - Prefer simple alternatives: "set up" not "scaffolded", "built" not "architected", "uses" not "leverages", "started" not "initialized", "added" not "introduced"
+   - Write as if explaining to someone with basic English -- short words, clear sentences, no jargon beyond necessary technical terms
+
+7. **Categories:**
    - Categorize commits based on their prefixes:
      - `feat:`, `feat(...)` → Features
      - `fix:`, `fix(...)` → Fixes

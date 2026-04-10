@@ -21,12 +21,12 @@ Arguments: $ARGUMENTS
 
 2. Run the build script:
 ```bash
-~/.claude/skills/swift-build/build.sh [configuration]
+~/.config/opencode/skills/swift-build/build.sh [configuration]
 ```
 
 Examples:
-- `~/.claude/skills/swift-build/build.sh` (debug, default)
-- `~/.claude/skills/swift-build/build.sh release` (release)
+- `~/.config/opencode/skills/swift-build/build.sh` (debug, default)
+- `~/.config/opencode/skills/swift-build/build.sh release` (release)
 
 3. The script outputs a directory path. Read logs in this order:
 

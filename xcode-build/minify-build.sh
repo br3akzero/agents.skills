@@ -79,5 +79,5 @@ grep -E '( warning:|^warning:)' "$OUTPUT_DIR/Raw.log" \
     fi
 } > "$OUTPUT_DIR/Summary.log"
 
-# Output the directory path for Claude to use
+# Output the directory path for the agent to use
 echo "Build logs saved to: $OUTPUT_DIR"

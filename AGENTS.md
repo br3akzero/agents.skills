@@ -1,10 +1,10 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to AI agents when working with code in this repository.
 
 ## Overview
 
-This is a private collection of AI agent skills — reusable slash commands for Claude Code and other AI agents. This repository is symlinked to `~/.claude/skills/`, so any skill added here is automatically available.
+This is a private collection of AI agent skills — reusable slash commands for AI coding agents. This repository is symlinked to `~/.config/opencode/skills/`, so any skill added here is automatically available.
 
 ## Structure
 

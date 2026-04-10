@@ -21,12 +21,12 @@ Arguments: $ARGUMENTS
 
 2. Run the test script:
 ```bash
-~/.claude/skills/swift-test/test.sh [filter]
+~/.config/opencode/skills/swift-test/test.sh [filter]
 ```
 
 Examples:
-- `~/.claude/skills/swift-test/test.sh` (all tests)
-- `~/.claude/skills/swift-test/test.sh DatabaseTests` (filtered)
+- `~/.config/opencode/skills/swift-test/test.sh` (all tests)
+- `~/.config/opencode/skills/swift-test/test.sh DatabaseTests` (filtered)
 
 3. The script outputs a directory path. Read logs in this order:
 

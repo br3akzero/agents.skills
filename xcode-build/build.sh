@@ -38,7 +38,7 @@ if [ -z "$SCHEME" ]; then
     xcodebuild -list $BUILD_TARGET 2>/dev/null | awk '/Schemes:/{found=1; next} found && NF{print "  - " $1}'
     echo ""
     echo "ERROR: No scheme specified. Usage: build.sh [version] <scheme>"
-    echo "Example: build.sh 26 Fishbyte"
+    echo "Example: build.sh 26 Project"
     exit 1
 fi
 

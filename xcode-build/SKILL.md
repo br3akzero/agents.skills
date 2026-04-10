@@ -27,13 +27,13 @@ PROJECT=$(ls -d *.xcodeproj 2>/dev/null | head -1)
 
 2. Run the build script with version and scheme:
 ```bash
-~/.claude/skills/xcode-build/build.sh [version] <scheme>
+~/.config/opencode/skills/xcode-build/build.sh [version] <scheme>
 ```
 
 Examples:
-- `~/.claude/skills/xcode-build/build.sh "" Fishbyte` (default destination)
-- `~/.claude/skills/xcode-build/build.sh 18 Fishbyte` (iOS 18)
-- `~/.claude/skills/xcode-build/build.sh 26 Fishbyte` (iOS 26)
+- `~/.config/opencode/skills/xcode-build/build.sh "" Project` (default destination)
+- `~/.config/opencode/skills/xcode-build/build.sh 18 Project` (iOS 18)
+- `~/.config/opencode/skills/xcode-build/build.sh 26 Project` (iOS 26)
 
 If scheme is not provided, the script will list available schemes and exit.
 
