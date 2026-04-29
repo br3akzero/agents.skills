@@ -4,9 +4,20 @@
 # Builds the project/workspace in the current directory and saves minified output
 #
 # Usage:
-#   ./build.sh          - Build for default destination
-#   ./build.sh 18       - Build for iOS 18 simulator
-#   ./build.sh 26       - Build for iOS 26 simulator
+#   ./build.sh <scheme>                              - Build for default destination
+#   ./build.sh <scheme> 18                           - Build for iOS 18 simulator
+#   ./build.sh <scheme> 26                           - Build for iOS 26 simulator
+#   ./build.sh <scheme> -- <destination>             - Build for custom destination
+#
+# Destination shortcuts:
+#   18   -> platform=iOS Simulator,name=iPhone 16 Pro,OS=18.5
+#   26   -> platform=iOS Simulator,name=iPhone 17 Pro,OS=26.4
+#
+# Custom destination examples:
+#   ./build.sh Radio -- 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.4'
+#   ./build.sh Radio -- 'platform=iOS Simulator,id=EF659659-8797-45B9-AC9F-1943D5AF3C00'
+#   ./build.sh Radio -- 'platform=iOS Simulator,name=iPad Pro 13-inch (M5),OS=26.4'
+#   ./build.sh Radio -- 'generic/platform=iOS'
 
 set -e
 
@@ -30,34 +41,65 @@ else
     exit 1
 fi
 
-# Get scheme from second argument or prompt
-SCHEME="${2:-}"
+# Parse arguments
+SCHEME=""
+IOS_VERSION=""
+CUSTOM_DESTINATION=""
+
+while [[ $# -gt 0 ]]; do
+    case "$1" in
+        --)
+            shift
+            CUSTOM_DESTINATION="$*"
+            break
+            ;;
+        18|26)
+            IOS_VERSION="$1"
+            shift
+            ;;
+        *)
+            if [ -z "$SCHEME" ]; then
+                SCHEME="$1"
+            else
+                echo "Error: Unexpected argument '$1'"
+                exit 1
+            fi
+            shift
+            ;;
+    esac
+done
 
 if [ -z "$SCHEME" ]; then
     echo "Available schemes:"
     xcodebuild -list $BUILD_TARGET 2>/dev/null | awk '/Schemes:/{found=1; next} found && NF{print "  - " $1}'
     echo ""
-    echo "ERROR: No scheme specified. Usage: build.sh [version] <scheme>"
-    echo "Example: build.sh 26 Project"
+    echo "ERROR: No scheme specified."
+    echo ""
+    echo "Usage: build.sh <scheme> [version|-- destination]"
+    echo "  build.sh Radio 26"
+    echo "  build.sh Radio -- 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.4'"
+    echo "  build.sh Radio -- 'generic/platform=iOS'"
     exit 1
 fi
 
-# Parse optional iOS version argument
-IOS_VERSION="${1:-}"
-
-# Configure build based on arguments
-if [ -z "$IOS_VERSION" ]; then
+# Configure destination
+if [ -n "$CUSTOM_DESTINATION" ]; then
+    DESTINATION="-destination \"$CUSTOM_DESTINATION\""
+    PREFIX="build_custom"
+elif [ -n "$IOS_VERSION" ]; then
+    case "$IOS_VERSION" in
+        18)
+            DESTINATION="-destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.5'"
+            PREFIX="build_ios18"
+            ;;
+        26)
+            DESTINATION="-destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.4'"
+            PREFIX="build_ios26"
+            ;;
+    esac
+else
     DESTINATION=""
     PREFIX="build"
-elif [ "$IOS_VERSION" = "18" ]; then
-    DESTINATION="-destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.5'"
-    PREFIX="build_ios18"
-elif [ "$IOS_VERSION" = "26" ]; then
-    DESTINATION="-destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.2'"
-    PREFIX="build_ios26"
-else
-    echo "Error: Unsupported iOS version '$IOS_VERSION'. Use 18 or 26."
-    exit 1
 fi
 
 # Run build and pipe to shared minifier
