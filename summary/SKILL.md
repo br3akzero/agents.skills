@@ -42,3 +42,4 @@ Miscellaneous
    - No emojis or special characters. Simple bullet points, one line each.
    - Use plain English. Avoid words like "scaffolded", "bootstrapped", "orchestrated", "leveraged", "utilized", "facilitated". Prefer "set up", "built", "uses", "started", "added". Short words, clear sentences.
    - Categorize by prefix: `feat:` -> Features, `fix:` -> Fixes, `refactor:`/`build:`/`chore:` -> Miscellaneous.
+   - If a section (Features, Fixes, Miscellaneous) has no entries for the given date, state "None" under that section header instead of omitting it.
