@@ -1,12 +1,12 @@
 ---
 name: summary
-description: Generate a comprehensive project status update based on git commits (REQUIRED: specify date)
+description: Generate a comprehensive project status update based on git commits. Requires a date argument
 allowed-tools: Bash, Read
 ---
 
 # Project Update
 
-Generate a comprehensive project status update based on git commits. Relies on conventional commit prefixes (`feat:`, `fix:`, `refactor:`, etc.) to categorize changes.
+Generate a comprehensive project status update based on git commits (do not mention relevant git commits nor the metadata about git). Relies on conventional commit prefixes (`feat:`, `fix:`, `refactor:`, etc.) to categorize changes.
 
 **IMPORTANT**: This command REQUIRES a date argument. If no date is provided, output "Error: no date specified" and exit immediately.
 
@@ -43,3 +43,4 @@ Miscellaneous
    - Use plain English. Avoid words like "scaffolded", "bootstrapped", "orchestrated", "leveraged", "utilized", "facilitated". Prefer "set up", "built", "uses", "started", "added". Short words, clear sentences.
    - Categorize by prefix: `feat:` -> Features, `fix:` -> Fixes, `refactor:`/`build:`/`chore:` -> Miscellaneous.
    - If a section (Features, Fixes, Miscellaneous) has no entries for the given date, state "None" under that section header instead of omitting it.
+   - Do not mention git metadata such as number of lines changed, number of commits, name of branches, etc...
