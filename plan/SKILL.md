@@ -1,6 +1,6 @@
 ---
-name: slice
-description: Plan a feature as vertical slices. Each slice is one concern completed end-to-end (config + impl + tests + build verify). Use when starting new feature work or when user says "slice" or "vertical slice".
+name: plan
+description: Plan a feature as vertical slices. Each slice is one concern completed end-to-end (config + impl + tests + build verify). Use when starting new feature work or when user says "plan" or "vertical slice".
 ---
 
 # Vertical Slice Planning
@@ -80,5 +80,5 @@ moving to the next.
 ## When to Use
 
 - User starts new feature work
-- User says "slice", "vertical slice", or "plan this feature"
+- User says "plan", "vertical slice", or "plan this feature"
 - Planning a multi-step implementation across packages/layers
